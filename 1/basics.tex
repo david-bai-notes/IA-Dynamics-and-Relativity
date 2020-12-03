@@ -1,0 +1,118 @@
+\section{Newtonian Dynamics: The Basics}
+\subsection{Particles}
+\begin{definition}
+    A particle is an object that has negligible size but have positive mass $m$ and electric charge $q$.
+\end{definition}
+Since a particle will have small size, we can describe its position by a simple position vector $\underline{r}(t)\in\mathbb R^3$ relative to the origin.
+We often write the vector in terms of its Cartesian components $\underline{r}=x\underline{i}+y\underline{j}+z\underline{k}=(x,y,z)$ where $\underline{i},\underline{j},\underline{k}$ are an orthonormal basis.
+The choice of the coordinate system (the origin and the basis) defines a frame of reference.\\
+When the particle moves, its position is determined by a curve $\underline{r}(t)$.
+The velocity of the particle is naturally its derivative $\underline{u}(t)=\underline{\dot{r}}(t)$.
+Geometrically, the velocity will be the tangent to the curve (or trajectory) at time $t$.
+The momentum as we know would be $\underline{p}=m\underline{u}=m\underline{\dot{r}}$.
+The acceleration is defined as $\underline{a}=\underline{\dot{u}}=\underline{\ddot{r}}$.
+\begin{note}
+    The time derivative of a vector valued function $\underline{v}(t)$ is
+    $$\underline{\dot{v}}(t)=\lim_{h\to0}\frac{\underline{v}(t+h)-\underline{v}(t)}{h}$$
+    provided its existence.
+    If anyone is worried, $\underline{v}\to\underline{v_0}\iff\|\underline{v}-\underline{v_0}\|\to 0$.\\
+    In particular, if $\underline{v}=x\underline{i}+y\underline{j}+z\underline{k}$, then $\underline{\dot{v}}=\dot{x}\underline{i}+\dot{y}\underline{j}+\dot{z}\underline{k}$ (given that the frame of reference is invariance in time).
+\end{note}
+\begin{proposition}
+    For scalar functions $f(t)$ and vector functions $\underline{g}(t),\underline{h}(t)$, we have\\
+    1. $(f\underline{g})^\prime=f^\prime \underline{g}+f\underline{g}^\prime$.\\
+    2. $(\underline{g}\cdot\underline{h})^\prime=\underline{g}^\prime\cdot\underline{h}+\underline{g}\cdot\underline{h}^\prime$.\\
+    3. $(\underline{g}\times\underline{h})^\prime=\underline{g}^\prime\times\underline{h}+\underline{g}\times\underline{h}^\prime$.\\
+    Note that sometimes the order matters.
+\end{proposition}
+\subsection{Newton's Laws of Motion}
+\begin{law}[Newton's First Law]
+    There exists inertial frames of reference (or inertial frames).
+    That is, a particle at rest or move in constant velocity continues to do so given that it is acted by no force.
+\end{law}
+\begin{law}[Newton's Second Law]
+    In an inertial frame, then the motion obeys the rule $\underline{\dot{p}}=\underline{F}$.
+\end{law}
+\begin{law}[Newton's Third Law]
+    To every action there is an equal and opposite reaction.
+\end{law}
+The statements, albeit are made for particles, can be extended to finite bodies.
+\footnote{Bounded bodies.}
+\subsection{Inertial Frames and Galileo Transformation}
+If we have an inertial frame, $\ddot{r}=0$ if there is no force acting on it.
+There is obviously not only one inertial frame.
+In particular, if $S$ is an inertial frame, then a frame $S'$ moving with uniform velocity relative to $S$ is also an inertial frame.
+For example, if the frame $S'$ is moving with velocity $v$ on the $x$ direction, then
+$$\begin{cases}
+    x'=x-vt\\
+    y'=y\\
+    z'=z\\
+    t'=t
+\end{cases}$$
+More generally, if $S'$ is moving with vector velocity $\underline{v}$ relative to $S$, we have
+$$\begin{cases}
+    \underline{r'}=\underline{r}-\underline{v}t\\
+    t'=t
+\end{cases}$$
+This transformation is called a \textit{boost}.
+For a partical having position vector $\underline{r}(t)$ in $S$ and $\underline{r'}(t')$ in $S'$.
+So we have the velocity $\underline{u'}=\underline{u}-\underline{v}$ (note that the primes are NOT used for derivatives here) and $\underline{a'}=\underline{a}$.
+\begin{definition}
+    A general Galileo transformation is one which preserves inertial frames.
+    It combines a boost with any of the following:\\
+    1. Translation of space: $\underline{r'}=\underline{r}-\underline{r_0}$.\\
+    2. Translation of time: $t'=t-t_0$.\\
+    3. Rotations and reflections: $\underline{r'}=R\underline{r},R\in\operatorname{O}(3)$.\\
+    This set generates the Galilean group of transformations.
+\end{definition}
+Note that if the acceleration is zero in one frame, so it is in another.
+\begin{definition}[Principle of Galilean Relativity]
+    The laws of (Newtonian) physics is unchanged in all inertial frames.
+\end{definition}
+That is, the laws of physics look the same in every inertial frame.
+Hence the system of Newtonian physics has to be invariant under the Galilean transformations.
+\subsection{Newton's Second Law}
+The law postulates that $\underline{F}=\underline{\dot{p}}$.
+Assume that $m$ is constant in time, then we have $\underline{F}=m\underline{\ddot{r}}$.
+Easily $m$ is the measure of ``reluctance to accelerate'', that is inertia.
+If we specify $\underline{F}$ as a function of $\underline{r},\underline{\dot{r}},t$, then we have a second order ODE in $\underline{r}$:
+$$\underline{F}(\underline{r},\underline{\dot{r}},t)=m\underline{\ddot{r}}$$
+We then need two initial conditions to solve the equation (or to determine the motion).
+For example, we can specify the initial position and velocity.
+With these information
+\footnote{And perhaps Picard-Lindel\"of Theorem}
+we can get an unique solution for the trajectory of our particle.
+\subsection{Examples of Forces}
+Consider $2$ particles indexed by $1,2$, then Newton tells us
+\begin{law}[Newton's Law of Gravitation]
+    There is an action-reaction pair on the two particles, namely
+    $$\underline{F_1}=-\frac{Gm_1m_2}{|\underline{r_1}-\underline{r_2}|^3}(\underline{r_1}-\underline{r_2})=-F_2$$
+\end{law}
+In particular, $|\underline{F_1}|=|\underline{F_2}|\propto|\underline{r_1}-\underline{r_2}|^{-2}$.
+This is known as the inverse square law.
+It is quite obvious that $G$ has an unit.
+It is called Newton's Gravitation Constant.\\
+Another example is electromagnetic forces.
+Let there be a particle with electric charge $q$ and imagine that it is moving in an electric-magnetic field $\underline{E}(\underline{r},t)$ and $\underline{B}(\underline{r},t)$.
+\begin{law}[Lorentz Force Law]
+    We have
+    $$\underline{F}=q(\underline{E}+\underline{\dot{r}}\times\underline{B})$$
+\end{law}
+\begin{example}
+    Take $\underline{E}=\underline{0},\underline{B}=\underline{B}(t)$, i.e. the electric field is constant and the magnetic field is constant in space.
+    Hence
+    $$m\underline{\ddot{r}}=q\underline{\dot{r}}\times\underline{B}(t)$$
+    Choose axes such that $\underline{B}=B\underline{\hat{z}}$, then $m\ddot{z}=0\implies z=z_0+ut$.
+    As for the other directions, we have
+    $$\begin{cases}
+        m\ddot{x}=qB\dot{y}\\
+        m\ddot{y}=-qB\dot{x}
+    \end{cases}$$
+    which we can easily solve to get
+    $$\begin{cases}
+        x=x_0-\alpha\cos(\omega(t-t_0))\\
+        y=y_0+\alpha\sin(\omega(t-t_0))
+    \end{cases}$$
+    which shall produce a helical path which is clockwise when viewed from the direction of $\underline{B}$.
+    And the axis of the helix is parallel to the magnetic field.
+\end{example}

@@ -1,0 +1,89 @@
+\section{System of Particles}
+We have considered the motion of a single particle in a force field, so we will now turn to a system of particles where they act on each other.\\
+Consider $N$ particles, namely particles $1,\ldots,i,\ldots,N$ having masses $m_i$ and positions $\underline{r_i}(t)$.
+The momentums are then $\underline{p_i}=m_i\underline{\dot{r}_i}$.
+Newton's Second Law for one of these particles is then $m_i\underline{\ddot{r}_i}=\underline{\dot{p}_i}=\underline{F_i}$.
+Divide the forces exerted in two parts: the external forces $\underline{F_i}^{\rm ext}$ (causes by something outside the $N$ particles) and internal forces $\underline{F_{ij}}$ which is the force exerted by particle $j$ on $i$.
+Conventionally we take $\underline{F_{ii}}=\underline{0}$.
+So basically
+$$\underline{F_i}=\underline{F_i}^{\rm ext}+\sum_j\underline{F_{ij}}$$
+Newton's Third Law then tells us $\underline{F_{ij}}+\underline{F_{ji}}=0$, like gravitation.
+\subsection{Motion of the Centre of Mass}
+The total mass of the system is $M=\sum_im_i$, then we define the centre of mass to be a location
+$$\underline{R}=\frac{1}{N}\sum_{i=1}^Nm_i\underline{r_i}$$
+The total linear momentum would be $\underline{P}=\sum_i\underline{p_i}=\sum_im_i\underline{\dot{r}}=M\underline{\dot{R}}$.
+Consider the rate of change of the momentum.
+By Newton's Secon Law,
+$$\underline{\dot{P}}=M\underline{\dot{R}}=\sum_{i=1}^N\underline{\dot{p}_i}=\sum_{i=1}^N\underline{F_i}^{\rm ext}+\sum_{i=1}^N\sum_{j=1}^N\underline{F_{ij}}=\sum_{i=1}^N\underline{F_i}^{\rm ext}=\underline{F}^{\rm ext}$$
+By $\underline{F_{ij}}=-\underline{F_{ji}}$.
+So the motions of the centre of mass closely resembles that of a single particle with mass $M$ and position $\underline{R}$, which is reassuring since it means we can consider finite (bounded) bodies as particles.
+So Newton's Second Law applies to macroscopic objects.
+A simple conclusion from this is if $\underline{F}^{\rm ext}=0$, then the total momentum of the system $\underline{\dot{P}_i}=\sum_{i=1}^N\underline{\dot{p}_i}$ is conserved.
+So in this case, we can set up the inertial frame as the centre of mass frame, in which $\underline{\dot{R}}=\underline{0}$.\\
+Now we turn to consider the angular momentum.
+Consider the total angular momentum about the origin, which is $\underline{L}=\sum_i\underline{r_i}\times\underline{p_i}$, then
+\begin{align*}
+    \underline{\dot{L}}&=\sum_{i=1}^N\underline{r_i}\times\underline{\dot{p}_i}+\sum_{i=1}^N\underline{\dot{r}_i}\times\underline{p_i}\\
+    &=\sum_{i=1}^N\underline{r_i}\times\underline{\dot{p}_i}\\
+    &=\sum_{i=1}^N\underline{r_i}\times\underline{F_i}^{\rm ext}+\sum_{i=1}^N\sum_{j=1}^N\underline{r_i}\times\underline{F_{ij}}\\
+    &=\underline{G}^{\rm ext}+\frac{1}{2}\sum_{i=1}^N\sum_{j=1}^N(\underline{r_i}-\underline{r_j})\times\underline{F_{ij}}
+\end{align*}
+The last term is sometimes zero, in which case the rate of change would be $\underline{G}^{\rm ext}$, the total external torque.
+\subsection{Motion relative to the Centre of Mass}
+Write $\underline{r_i}=\underline{R}+\underline{s_i}$, so $\underline{s_i}$ is the position of particle $i$ relative to the centre of mass.
+Then
+$$\sum_{i=1}^Nm_i\underline{s_i}=\sum_{i=1}^Nm_i(\underline{r_1}-\underline{R})=\sum_{i=1}^Nm_i\underline{r_i}-M\underline{R}=0$$
+Consequently $\sum_im_i\underline{\dot{s}_i}=0$.
+As for the total linear momentum, since we have the above,
+$$\underline{P}=\sum_{i=1}^Nm_i(\underline{\dot{R}}+\underline{\dot{s}_i})=M\underline{\dot{R}}$$
+The angular momentum would have, exploiting the same fact,
+\begin{align*}
+    \underline{L}&=\sum_{i=1}^Nm_i(\underline{R}+\underline{s_i})\times(\underline{\dot{R}}+\underline{\dot{s}_i})\\
+    &=\sum_{i=1}^Nm_i\underline{R}\times\underline{\dot{R}}+\sum_{i=1}^Nm_i\underline{s_i}\times\underline{\dot{s}_i}+\left( \sum_{i=1}^Nm_i\underline{s_i} \right)\times\underline{\dot{R}}+\underline{R}\times\left( \sum_{i=1}^Nm_i\underline{\dot{s}_i} \right)\\
+    &=\sum_{i=1}^Nm_i\underline{R}\times\underline{\dot{R}}+\sum_{i=1}^Nm_i\underline{s_i}\times\underline{\dot{s}_i}\\
+    &=M\underline{R}\times\underline{\dot{R}}+\sum_{i=1}^Nm_i\underline{s_i}\times\underline{\dot{s}_i}
+\end{align*}
+which is the angular momentum of the centre of mass plus the total angular momentum relative to the centre of mass.
+The total kinetic energy is
+\begin{align*}
+    T&=\sum_{i=1}^N\frac{1}{2}m_i|\underline{\dot{r}_i}|^2\\
+    &=\sum_{i=1}^N\frac{1}{2}m_i|\underline{\dot{R}}+\underline{\dot{s}_i}|^2\\
+    &=\sum_{i=1}^N\frac{1}{2}m_i|\underline{\dot{R}}|^2+\sum_{i=1}^N\frac{1}{2}m_i|\underline{\dot{s}_i}|^2+\underline{\dot{R}}\cdot\left(\sum_{i=1}^Nm_i\underline{\dot{s}_i}\right)\\
+    &=\frac{1}{2}M|\underline{\dot{R}}|^2+\frac{1}{2}\sum_{i=1}^Nm_i|\underline{\dot{s}_i}|^2
+\end{align*}
+Now is the energy conserved?
+Assuming $\underline{F}^{\rm ext}$ is conserved, then $\underline{F}^{\rm ext}=-\nabla V^{\rm ext}$.
+Take $\underline{F_{ij}}$ to be conserved as well and its potential purely depends on the seperation between the particles, then $\underline{F_{ij}}=-\nabla V_{ij}(\underline{r_i}-\underline{r_j})$.
+We can show that the total energy is conserved under these assuming these by just differentiating.
+\subsection{The Two Body Problem}
+The centre of mass is $\underline{R}=(m_1\underline{r_1}+m_2\underline{r_2})/M$
+Consider the seperation vector $\underline{r}=\underline{r_1}-\underline{r_2}$, so we can write
+$$\begin{cases}
+    \underline{r_1}=\underline{R}+\frac{m_2}{m}\underline{r}\\
+    \underline{r_2}=\underline{R}-\frac{m_1}{m}\underline{r}
+\end{cases}$$
+Since the external force is assumed to be zero, $\underline{R}$ moves with constant velocity.
+Consider $\ddot{r}$, then $\ddot{r}=\underline{F_{12}}/m_1-\underline{F_{21}}/m_2=(1/m_1+1/m_2)\underline{F_{12}}$.
+Hence
+$$\mu\underline{\ddot{r}}=\underline{F_{12}}(\underline{r}),\mu=\frac{m_1m_2}{m_1+m_2}$$
+Here $\mu$ is called the reduced mass.
+In the case of the gravitational force, we have
+$$\mu\underline{\ddot{r}}=-\frac{Gm_1m_2}{|\underline{r}|^3}\underline{r}\implies\underline{\ddot{r}}=-G(m_1+m_2)\frac{\underline{r}}{|\underline{r}|^3}=-\frac{GM}{|\underline{r}|^3}\underline{r}$$
+which is just like the motion of two particles entirely due to a mass $M$ at the origin.
+So both masses perform orbits with similar shape but different sizes.
+\subsection{Variable Mass Problem}
+Think of a rocket whose mass decreases as it moves due to the exhausted mass.
+So its mass itself is variable.
+So we need to apply Newton's Second Law to the whole system including the exhausted mass.
+Suppose the mass and the velocity of the rocket is $m(t),v(t)$.
+And the exhausted mass has a speed $u$ relative to the rocket when leaving the rocket.
+At time $t$, when we look at this instant only, we can ignore what happened in the past, hence after a small time interval $\delta t$, mass of $m(t)=m(t+\delta t)$ is exhausted with speed $v(t)-u+o(\delta t)$.
+By conservation of momentum,
+$$m(t+\delta t)v(t+\delta t)+(m(t)-m(t+\delta t))(v(t)-u+o(\delta t))=m(t)v(t)$$
+Hence
+$$(mv^\prime+m^\prime u)\delta t\approx m(t+\delta t)(v(t+\delta t)-v(t))+(m(t+\delta t)-m(t))u+o(\delta t)=0$$
+Since $\underline{F}=\underline{\dot{p}}$, it generalises to
+$$mv^\prime+m^\prime u=F$$
+where $F$ is the total external force exerted on the rocket.
+This is called the rocket equation.
+If $F=0$, we have $mv^\prime+m^\prime u=0$ which we can solve to get $v=v_0+u\log(m_0/m(t))$.

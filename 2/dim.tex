@@ -1,0 +1,67 @@
+\section{Dimensional Analysis}
+\subsection{Basic Dimensional Quantities and Units}
+For most motions we will be considering, there are basically three dimensions of interests: length ($L$), mass ($M$) and time ($T$).
+In general, the dimension of a physical quantity $X$ can be expressed using thsese three dimensions.
+For example, the density can be expressed by $ML^{-3}$, and the force can be expressed by $MLT^{-2}$.
+We are only going to consider the product of powers of the dimensional quantities.
+We can then introduce units for the basic dimensional quantities.
+Most likely we will use the SI unit system ($L=$m, $M=$kg, $T=$s).
+For other quantities, we can form units out of the basic units we defined for the basic quantities.
+\begin{example}
+    To find the unit of the constant $G$ in Newton's Law of Gravitation, we can determine by writing each quantity in basic quantities, so we have $G=L^3T^{-2}M^{-1}$, therefore the unit for $G$ will be ${\rm m^3s^{-2}kg^{-1}}$.
+\end{example}
+The general principle is that dynamical or physical equations must work for any chosen system of units.
+\subsection{Scaling}
+Suppose I have a dimensional quantity $Y$ which depends on some other quantities $X_1,X_2,\ldots,X_n$.
+Let the diensions of the quantity $Y$ be $L^aM^bT^c$, and $X_i$ has dimensions $L^{a_i}M^{b_i}T^{c_i}$.
+We want to determine the dimensions of $Y$ from that of $X_i$.
+So obviously we have $Y=C\prod_i X_i^{p_i}$, so
+$$\begin{cases}
+    a=\sum_ip_ia_i\\
+    b=\sum_ip_ib_i\\
+    c=\sum_ip_ic_i
+\end{cases}$$
+If $n=3$, then there is an unique solution iff $X_1,X_2,X_3$ are independent, so
+$$\begin{vmatrix}
+    a_1&a_2&a_3\\
+    b_1&b_2&b_3\\
+    c_1&c_2&c_3
+\end{vmatrix}\neq 0$$
+which happens most of the time.
+Note that for general $n$ there must be a solution (not necessarily unique) if we assume that $Y$ does indeed depend on a subset of $\{X_i\}$.
+So for $n<3$, there is an unique solution as well.\\
+For $n>3$, however, we can choose $n-3$ dimensionless constants
+$$\lambda_i=X_i/(X_1^{p_{i1}}X_2^{p_{i2}}X_3^{p_{i3}})$$
+where $i=4,5,\ldots$, assuming $X_1,X_2,X_3$ are independent.
+So
+$$Y=C(\lambda_4.\lambda_5,\ldots)X_1^{p_1}X_2^{p_2}X_3^{p_3}$$
+where $C$ is a dimensionless function.
+This is sometimes known as Bridgemzn's Theorem.
+\begin{example}
+    Consider a simple pendulum.
+    Let $d$ be the horizontal initial displacement, $m$ the mass, and $g$ the acceleration due to gravity, and $l$ the length of the string, and we want to find expression of the period $P$ in term of these.
+    Speaking of dimensions,
+    $$\begin{cases}
+        [P]=T\\
+        [d,l]=L\\
+        [g]=LT^{-2}\\
+        [m]=M
+    \end{cases}$$
+    Thus
+    $$T=M^{p_1}L^{p_2}(LT^{-2})^{p_3}$$
+    solve to get $p_1=0,p_2=1/2,p_3=-1/2$
+    Hence
+    $$P=C\left( \frac{d}{l} \right)\sqrt{\frac{l}{g}}$$
+    For a dimensionless function $C$.\\
+    Hence, if we scale $d,l$ by $2$, the period will be scaled by $\sqrt{2}$.
+    Also $P$ is independent of $m$.
+\end{example}
+\begin{example}
+    Taylor's estimate to the first atomic explosion.\\
+    We want to estimate the radius of the fireball $R$ which has dimension $L$.
+    $R$ depends on the time $t$ since the explosion which has dimension $T$.
+    The density of air $\rho_0$ which has dimension $ML^{-3}$ is also involved.
+    Lastly the energy of explosion $E$ having dimension $ML^2T^{-2}$.\\
+    So by doing dimensional analysis, we immediately (since there are only $3$ depending dimensions) have $R\propto \sqrt[5]{Et^2/\rho_0}$.
+    This has allowed Taylor to estimate the size of $E$.
+\end{example}

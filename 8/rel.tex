@@ -1,0 +1,382 @@
+\section{Special Relativity}
+The Newtonian Mechanics works perfectly (maybe not) well in low-speed cases, but when the object has gotten a pretty big velocity, Newtonian physics is no longer a good approximation to the situation that arises.
+Therefore, in 1905, Albert Einstein proposed the Special Theory of Relativity, in which the main differences involved are due to the treatment of the speed of light $c=299792458{\rm ms^{-1}}\approx 3\times 10^8{\rm ms^{-1}}$.\\
+Special Relativity is based on two postulates:
+\begin{postulate}[Principle of Relativity]
+    The laws of physics are the same in all inertial frames.
+\end{postulate}
+\begin{postulate}[Speed of Light]
+    The speed of light in vacuum is the same in all inertial frames.
+\end{postulate}
+The need for the second postulate arises from many experiments that failed to detect the dependence of speed of light relative to inertial frames.
+But the addition of this postulate then leads to a radical revision of our understanding of space and time and the relationships of energy, momentum and mass.\\
+Consider two frames $S,S'$, then if they are related by Galilean transformation, we have
+$$x'=x-vt,y'=y,z'=z,t'=t$$
+Write the path of light ray in $S$ as $x=ct$, then in $S'$, we have $x'=x-vt=(c-v)t'$, so it doesn't work.
+Therefore we need a new form of transformation to describe inertial frames in order to accomodate our postulates.
+We have to treat space and time equally.
+\subsection{Lorentz Transformation}
+Consider inertial frames $S,S'$.
+Assume their origins coincide, i.e. the spacial origins of the frames coincide when $t=t'=0$.
+Suppose $S'$ is moving along the $x$ direction relative to $S$ with speed $v$, then we can ignore the $y,z$ directions for the moment.
+So we are interested in the relationship between $(x,t)$ and $(x',t')$.
+By the Principle of Relativity, something moving in constant velocity in $S$ must also do so in $S'$.
+In $(x,t)$ plane, the constant velocity path is a straight line, so it is also the case in $(x',t')$.
+So the transformation must be linear.
+The origin of $S'$ moves with speed $v$ in $S$, this implies that $x'=\gamma(x-vt)$.
+where $\gamma$ depends on $|v|$.
+By symmetry, $x=\gamma(x'+vt')$.
+Consider a light ray going through the origins at time $t=t'=0$.
+In $S$, the equation of the light ray in $S$ is $x=ct$ and also in $S'$, $x'=ct'$.
+So if we plug these in, then $ct=\gamma(c+v)t'$ and $ct'=\gamma(c-v)t$.
+We then have
+$$\gamma^2(1-v/c)(1+v/c)=1\implies \gamma=\frac{1}{\sqrt{1-v^2/c^2}}$$
+We call $\gamma$ the Lorentz factor.
+Consequently we obtain the Lorentz transformation (or Lorentz Boost):
+$$\begin{cases}
+    x'=\gamma(x-vt)\\
+    t'=\gamma(t-vx/c^2)
+\end{cases},\begin{cases}
+    x=\gamma(x+vt)\\
+    t=\gamma(t'+vx'/c^2)
+\end{cases}$$
+The coordinates $y,z,y',z'$ does not change if the velocity is entirely on the $x$-direction.
+Now $\gamma>1$ whenever $v\neq 0$ and $\gamma\to\infty$ if $|v|\to c$.
+When $v$ is small, we can approximate $\gamma=1$, which gives us the standard Galilean transformation.\\
+To check that the speed of light indeed remains constant in two frames.
+Suppose a light ray travels in $x$ direction, then $x=ct$, so
+$$x'=\gamma(x-vt)=\gamma(c-v)t=\gamma^2(c-v)\left( t'+\frac{vx'}{c^2} \right)\implies x'=ct'$$
+For a light ray that is travelling in the $y$ direction, $y=ct,x=z=0$.
+In $S'$, we have
+$$x'=\gamma(-vt)=-\gamma vt,t'=\gamma t,y'=ct,z'=0$$
+So the speed of the light ray will be
+$$\sqrt{\left( \frac{-\gamma t}{\gamma} \right)^2+\left( \frac{c}{\gamma} \right)^2}=\sqrt{c^2}=c$$
+So the speed of light is not changed, but the direction of the light ray has.\\
+From a more general viewpoint, we consider the metric
+$$c^2t'^2-r'^2=(ct')^2-(x'^2+y'^2+z'^2)=(ct)^2-(x^2+y^2+z^2)=c^2t^2-r^2$$
+By some calculation.
+So this quantity is preserved.\\
+Consider the case where there is only one spacial dimension $x$ in an inertial frame $S$ with time $t$.
+Conventionally we plot $x$ in the horizontal axis and $ct$ in the vertical direction.
+The trajectory of a particle in space-time then is a curve in the plane.
+We call this the Minkowski space-time, where each point $(x,ct)$ in the space-time represents an event.
+We call the curve that represents the motion of some particle a world line.
+In particular, the world line is straight iff the particle moves in uniform velocity.
+Light rays through the origin then travels in vertical lines of the form $x=\pm ct$, which are the vertical lines that has a inclination of $\pi/4$ to either axis.
+As a particle is not allowed to move with velocity greater than the speed of light, its motion (assuming that it goes through the origin) is restricted to the upper and lower cones that are split by the lines $x=\pm ct$.\\
+How about viewing from another inertial frame $S'$?
+The $t'$ axis corresponds to $x'=0$, so it corresponds to $x=vt=(v/c)ct$, and the $x'$ axis is $t'=0$, hence the axis is $ct=(v/c)x$.
+Thus the axes moves by the same degree closer to the diagonal (where the light ray travels) if $v\ge 0$ and further from the diagonla otherwise.
+This is consistent with the postulate that the speed of light doesn't change across the frames.
+\subsection{Relativistic Physics}
+Consider two events $P_1=(x_1,t_1),P_2=(x_2,t_2)$ that are points in the frame $S$ in one-dimensional Minkowski space-time.
+They are called simultaneous if $t_1=t_2$.\\
+So the line $P_1P_2$ is then parallel to the $x$-axis.
+This is called the line of simultaneity in $S$.
+But in $S'$, assuming $v\neq 0$, $P_1,P_2$ are no longer in a line of simultaneity in $S'$ (which is of the form $t-vx/c^2=d$ where $d$ is a constant).
+In particular, if $x_1<x_2$, then in $S'$ the event $P_2$ occurs first (with $v>0$).
+Hence in general the simultaneity is frame-dependent.\\
+The question of causality then arises, as different observers in different frames see different orders of events.
+So we want to see a consistent ordering of cause and effect.
+Note that the lines of simultaneity in $S'$ viewed in $S$ cannot incline more than $\pi/4$ since $|v|<c$.
+In higher dimensions, lines and surfaces emerging from an event $P$ with $\pi/4$ inclination to the axes forms the light cones, the past light cone and the future light cone (depending on signs).
+All observes agree that the event $Q$ occurs after $P$ if $Q$ is in the future light cone, but whether or not the event $R$, not in the light cones, occurs after $P$ is frame dependent.
+The fact that $R$ is outside of the light cone of $P$ then implies that $R$ cannot be influenced by $P$, and vice versa, since matters cannot travel faster than the speed of light (which is the boundary of the light cone).
+In general, an event can only be influenced by events in its past light cone and influence events in its future light cone.
+So causality does preserve.\\
+Now consider a clock stationary in $S'$ and tips in constant intervals $\delta t'$.
+We want to know what time interval is perceived by observers in $S$.
+Recall the inverse Lorentz transformation gives $t=\gamma(t'+x'v/c^2)$, but $x'$ is constant since the clock is stationary in $S'$.
+So $\delta t=\gamma\delta t'$, so moving clocks are slower in moving frames.
+This is called time dilation.
+We say the time observed in the rest frame of a particular object the proper time.\\
+Consider two twins, Luke and Leia.
+Luke is staying home and Leia is going to a far planet and return home with speed $v$ relative to Luke.
+In Luke's frame of reference, take the origin to be home.
+Suppose the planet is at $x=P$ and Leia arrives at the planet at time $cT$.
+Time experienced by Leia in this part of the journey is then
+$$T'=\gamma(T-\frac{v}{c^2}vT)=\frac{T}{\gamma}$$
+Same for going back.
+So during the entire journey, Leia aged $2T/\gamma$ while Luke aged $2T$, so Leia becomes younger than Luke.
+From Leia's perspective, Luke travels away from her and returns, so if the problem is symmetric, then Luke should be younger, which is a contradiction.
+So the paradox is the lack of symmetries in this problem.
+Let $X$ be the intersection point between the line of simultaneity in Leia's outward frame through $P$, so at $A$, we have $x=0,t=T,t'=T/\gamma$ and $X$ has $x=0,t'=T/\gamma$, so the time experienced by Leia would be $t=T/\gamma^2$ in Luke's frame at $A$.
+As for the return journey, the line of simultaneity changes sign.
+So in the return journey, Luke sees Leia aging from $A$ to $R$ and Leia sees Luke aging from $Z$ to $R$ (where $Z$ is the event with $x=0$ that is simultaneous with $A$ in the frame of Leia on her return journey).
+The reason for the paradox is the discontinuity of time (from $X$ to $Z$) when Leia changes direction, so Luke has aged instaneously from $X$ to $Z$.\\
+Now we shall talk about length contraction.
+Consider a rod of length $L'$ stationary in $S'$, we want to know about the length of the rod in $S$.
+Suppose the ends of the rod are at $x'=0$ and $x'=L'$, so the world lines of the ends are simply the two vertical lines described by these equations.
+So $x'=0$ mapsto $\gamma(x-vt)=0$ in $S$ and $x'=L'$ mapsto $\gamma(x-vt)=L'$, so these two lines are still parallel but the horizontal (in $S$) distance between them are now $L=L'/\gamma$, so moving objects are contracted in the direction in which they move.
+We define the proper length to be the length measured in the rest frame of the rod, which is essentially the greatest length of it over all frames.\\
+A practical problem is that does a train of proper length $2L$ fits in a platform of proper length $L$ if it travels at a certain speed.
+So we want $\gamma=2$.
+Now for the observers at the platform, this would work if the train attains the desired speed.
+As for the observers on the train, the platform contracts to length $L/\gamma=L/2$ so it doesn't fit.
+Suppose the platform is defined by $x=0$ and $x=L$.
+The train is defined by $x'=0$ and $x'=2L$, which are mapped to some slanted lines in $S$, the frame of the platform.
+Consider the event $E$ where the rear of the platform and the rear of the train coincide.
+For simplicity, this happens at $t=t'=0$.
+Now the front of the train is $x'=2L$ and the platform is $x=L$.
+Let $F$ be the event which is simultaneous with $E$ in $S$ at the front of the train, so $x'=\gamma(x-vt),2L=\gamma(L-vt)$ which implies $t=0$, so in the platform, $E$ is simultaneous with $F$, but in the train $S'$, we have $t'<0$ by calculation.
+So in the train $F$ occurs before $E$ in $S'$.\\
+Now that both length and time become different in different frames, what about velocities?
+Suppose we have a particle moving with constant velocity $u'$ in $S'$ which moves with constant velocity $v$ relative to $S$.
+We want to know the velocity $u$ of the particle as measured in $S$.
+The world line of the particle in $S'$ can be taken as $x'=u't'$, so we have $\gamma(x-vt)=u'\gamma(t-vx/c^2)$ which gives $u=(u'+v)/(1+u'v/c^2)$.
+In particular, if $u',v<<c$, then $u\approx u'+v$ which is the standard Galilean transformation.
+Note also that we still cannot get to the speed of light given $u',v<c$ which is a combination of successive boosts.
+\subsection{The Geometry of Space-time}
+\begin{definition}
+    Consider two points $P,Q$ in space-time having coordinates $(x_1,ct_1),(x_2,ct_2)$, so $\delta t=t_2-t_1$ and the space seperation is $\delta x=x_2-x_1$.
+    We define the invariant interval between $P,Q$ to be $\delta s^2=c^2\delta t^2-\delta x^2$.
+\end{definition}
+Note that as we observed before, one can show that all observers agree on the value of $\delta s^2$.
+\begin{definition}
+    If we have three spacial dimensions $(x,y,z)$, we define $\delta s^2=c^2\delta t^2-\delta x^2-\delta y^2-\delta z^2$.
+\end{definition}
+If the seperation between $P,Q$ becomes small, then $\mathrm ds^2=c^2\,\mathrm dt^2-(\mathrm dx^2+\mathrm dy^2+\mathrm dz^2)$ which looks like a distance (no it doesn't).
+We can (no we can't) say that space-time is topologically equivalent to $\mathbb R^4$ endowed by the distance measure $\delta s$, but note that this is not even positive definite.
+The space-time endowed with this ``measure of distance'' is called the Minkowski space-time.
+\begin{definition}
+    Two events having $\delta s^2<0$ are said to be time-like seperated, and two that have $\delta s^2<0$ are said to be space-like seperated.
+\end{definition}
+So two time-like seperated events are at the same space position in some frame of reference and space-like seperated events are at the same time position in some frame.
+\begin{definition}
+    if $\delta s^2=0$, we say $P,Q$ are light-like seperated, so they can be connected by a light ray.
+\end{definition}
+Note also that events that are light-like seperated may not be the same.
+\begin{definition}
+    Take event $P$ in $S$, we can write its coordinates as a $4$-vector $X^\mu=(ct,x,y,z),\mu=0,1,2,3$, so $X^0=ct$ etc..
+\end{definition}
+We can define a new ``inner product'' on $4$-vectors by $X\cdot Y=X^\top\eta X=X^\mu\eta_{\mu\nu}X^\nu$ where
+$$\eta=\begin{pmatrix}
+    1&0&0&0\\
+    0&-1&0&0\\
+    0&0&-1&0\\
+    0&0&0&-1
+\end{pmatrix}$$
+So we have $X\cdot X=c^2t^2-x^2-y^2-z^2$.
+We call this the Minkowski metric.
+$4$-vectors with $X\cdot X>0$ are time-like, those with $X\cdot X<0$ are space-like and those with $X\cdot X=0$ are light-like (or null).
+The Lorentz transformation is a lineaR transformation that takes the components of a $4$-vector in $S$ to those of a $4$-vector in $S'$.
+Hence we can write it as a matrix $\Lambda$ where $X'=\Lambda X$.
+The set of all $\Lambda$ that preserves the Minkowski metric then forms a group, called the Lorentz group.
+I.e. we want $X\cdot X=(\Lambda X)\cdot (\Lambda X)$ for all $4$-vector $X$.
+By substitution we have $\Lambda^\top\eta\Lambda=\eta$.\\
+If $\Lambda$ is just a spacial transformation, i.e.
+$$\Lambda=\begin{pmatrix}
+    1&0&0&0\\
+    0&&&\\
+    0&&R&\\
+    0&&&
+\end{pmatrix}$$
+So $R$ must be a rotation.
+If it is not the case, we can also have the boost (WLOG in the $x$-direction)
+$$\Lambda=\begin{pmatrix}
+    \gamma&-\gamma\beta&0&0\\
+    -\gamma\beta&\gamma&0&0\\
+    0&0&1&0\\
+    0&0&0&1
+\end{pmatrix},\beta=\frac{v}{c}$$
+The Lorentz group $\operatorname{O}(1,3)$ also consists of spacial reflections and time reversals.
+And its subgroup $\operatorname{SO}(1,3)$ with determinant $1$ is called the proper Lorentz group.
+This includes composition of time reversals and spacial reflections.
+The subgroup that preserves the direction of time and spacial orientation is called the restrictive Lorentz group $\operatorname{SO}^+(1,3)$, which is generated by spacial rotations and boosts (in all directions).\\
+A way to label the Lorentz transformations is by a concept of rapidity.
+We now focus on the $(ct,x)$ space (i.e. the $2\times 2$ submatrix on the top left corner operating on $(ct,x)$), where we define
+$$\Lambda[\beta]=\begin{pmatrix}
+    \gamma&-\gamma\beta\\
+    -\gamma\beta&\gamma
+\end{pmatrix}$$
+So if we combine two boosts in the $x$ direction, then we have $\Lambda[\beta_1]\Lambda[\beta_2]=\Lambda[(\beta_1+\beta_2)/(1+\beta_1\beta_2)]$ with appropriate values of $\gamma$'s.
+Recall that for spacial rotations, we have $R(\theta_1+\theta_2)=R(\theta_1)R(\theta_2)$.
+For Lorentz boosts, we define the rapidity $\phi$ by $\beta=\tanh\phi$, so $\gamma=\cosh\phi$ and $\gamma\beta=\sinh\phi$.
+Hence
+$$\Lambda[\phi]=\begin{pmatrix}
+    \cosh\phi&-\sinh\phi\\
+    -\sinh\phi&\cosh\phi
+\end{pmatrix}$$
+and thus $\Lambda[\phi_1]\Lambda[\phi_2]=\Lambda[\phi_1+\phi_2]$.
+This suggests that Lorentz transformations are hyperbolic rotations of space-time.
+\subsection{Relativistic Kinematics}
+Consider a particle moving along some trajectory $\underline{x}(t)$, then $\underline{u}(t)=\mathrm d\underline{x}/\mathrm dt$, so the path of it in space-time is parameterized by $t$.
+But in special relativity the dependent variable $t$ is also going to change, so the path of it in a new frame would be non-trivial.
+Consider a particle at rest in $S'$, so $\underline{x}=\underline{x_0}$ in $S'$, so the invariant interval would be $\delta s^2=c^2\delta t'^2$.
+Define the proper time as the time $\tau$ with $c^2\delta\tau^2=\delta s^2$, so $\delta\tau$ is the time experienced by the particle.
+Due to invariance, this equation holds in all frame, and $\tau$ is real in time-like intervals.
+So the world line of a particle can be parameterized by $\tau$.
+In terms of an infinitesimal interval, if $\underline{u}$ is the speed of the particle, we have
+$$\mathrm d\tau=\frac{\mathrm ds}{c}=\frac{1}{c}\sqrt{c^2\,\mathrm dt^2-\mathrm dx^2}=\sqrt{1-\frac{|\underline{u}|^2}{c^2}}\mathrm dt$$
+Hence $\mathrm dt/\mathrm d\tau=\gamma_u$ where $\gamma_u=1/\sqrt{1-u^2/c^2}$.
+The total time experienced by the particle is then
+$$T=\int\mathrm d\tau=\int\frac{\mathrm dt}{\gamma_u}$$
+To study this, we introduce the concept of a $4$-velocity.
+The position $4$-vector of a particle is the column vector $X(\tau)=(ct(\tau),\underline{x}(\tau))^\top$ where $\underline{x}$ is a $3$-vector.
+\begin{definition}
+    The $4$-velocity is
+    $$U=\frac{\mathrm dX}{\mathrm d\tau}=\begin{pmatrix}
+        c\,\mathrm dt/\mathrm d\tau\\
+        \mathrm d\underline{x}/\mathrm d\tau
+    \end{pmatrix}=\gamma_u\begin{pmatrix}
+        c\\
+        \underline{u}
+    \end{pmatrix},\underline{u}=\frac{\mathrm d\underline{x}}{\mathrm dt}$$
+\end{definition}
+If I have two frames $S,S'$ such that the components of $X,X'$ of the position vector are related by $X'=\Lambda X$, then $U'=\Lambda U$.
+In general, everything that transforms in this way is called a $4$-vector.
+And in particular, $U$ is a $4$-vector since $X$ is and $\tau$ is invariant.
+Note that $\mathrm dX/\mathrm dt$ is however not a $4$-vector.
+The scalar product $U\cdot U$ will hence be Lorentz invariant.
+That is, $U\cdot U=U'\cdot U'$.
+In the rest frame where the particle with $4$-velocity $U$, then $U=(c,\underline{0})^\top$, so $U\cdot U=c^2$, so for any $u$, we have $c^2=\gamma_u^2(c^2-|\underline{u}|^2)$.
+We have seen that the rule of transformation of velocity in special relativity is not as simple as in Galilean transformations.
+However, we do have a fairly simple transformation law for $4$-vectors, which we can apply to $4$-velocity, which gives $U'=\Lambda U$.
+\begin{example}
+    In a frame $S$ where our favourite particle is moving with a speed $u$ at an angle $\theta$ to the $x$-axis in the $x-y$ plane.
+    Its $4$-velocity is then $U=\gamma_u(c,u\cos\theta,u\sin\theta,0)^\top$.
+    Consider another frame $S'$ which moves with speed $v$ in the $x$ direction of $S$.
+    Suppose the velocity in $S$ is $u'$ and it makes an angle $\theta'$ to the $x$-direction in $S'$.
+    So $U'=\gamma_{u'}(c,u'\cos\theta',u'\sin\theta',0)$ with
+    $$U'=\begin{pmatrix}
+        \gamma_v&-\gamma_v\beta_v&0&0\\
+        -\gamma_v\beta_v&\gamma_v&0&0\\
+        0&0&1&0\\
+        0&0&0&1
+    \end{pmatrix}U$$
+    which we can solve to get $\theta',u'$ in terms of other things.
+    $$u'\cos\theta'=\frac{u\cos\theta-v}{1-uv\cos\theta/c^2},\tan\theta'=\frac{u\sin\theta}{\gamma_v(u\cos\theta-v)}$$
+    This change in angle, i.e. apparent change of direction, of the motion of the particle due to the motion of the observer is called an aberation.
+    This also applied with the particle is a photon, so $u=c$, so although the speed of light cannot change across inertial frames, the direction of light ray can.
+\end{example}
+We also want to talk about $4$-momentum.
+The $4$-momentum of a particle of mass $m$ moving with $4$-velocity $u$ is given by $P=mU=m\gamma_u(c,\underline{u})^\top$ with components $\mu=0,1,2,3$ where the component $\mu=0$ is interpreted as time.
+For $P$ to be a $4$-vector, $m$ must be an invariant, so we must take $m$ to be the rest mass of the particle.
+The $4$-momentum of a system of particles is the sum of the individual particles which conserves in the absence of external forces.
+The spacial components of $P$ corresponds to the relativistic $3$-momentum $\underline{p}=\gamma_um\underline{u}$ which is the same as the Newtonian expression except that mass is modified to $\gamma_um$, which is interpreted as the apparent mass of the moving particle.
+In particular, when $|\underline{u}|\to c$, the apparent mass tends to infinity.
+For the zero component,
+$$P^0=\gamma_umc=\frac{1}{c}\left(mc^2+\frac{1}{2}m|\underline{u}|^2+\cdots\right)$$
+We see the kinetic energy in the second term, so the natural interpretation of $P$ is $P=(E/c,\underline{p})$ where $E$ is called the relativistic energy, so $E=\gamma_umc^2=mc^2+m|\underline{u}|^2/2+\cdots$ and $P$ is sometimes called the energy-momentum $4$-vector.
+Note that $E\to\infty$ as $|\underline{u}|\to c$.
+So for a stationary particle, we have $E=mc^2$, and for a moving particle we have $E=mc^2+(\gamma_u-1)mc^2$ where the second term is the kinetic energy, which reduces to the Newtonian kinetic energy for small $u$.
+Now $P\cdot P=E^2/c^2-|\underline{p}|^2$ is conserved under Lorentz transformation and hence equals to $m^2c^2$, so we have $E^2=|\underline{p}|^2c^2+m^2c^4$.
+In Newtonian physics, mass and energy are seperated idea in the sense that they are seperately conserved.
+But in relativity, mass is not conserved and is a form of energy, i.e. we can convert mass into kinetic energy and vice versa.\\
+Consider a massless particles (i.e. particles with zero rest mass) like a photon.
+It can have non-zero ($4$-)momentum and hence nonzero relativistic energy.
+Suppose this particle has the speed of light, then $0=m^2c^2=P\cdot P=E^2/c^2-|\underline{p}|^2$.
+We say this particle is light-like and it travels through a light-like trajectory.
+Consequently, there is no proper time for this particle.
+Note that in this case $E=c|\underline{p}|$, so
+$$P=\frac{E}{c}\begin{pmatrix}
+    1\\
+    \underline{n}
+\end{pmatrix}$$
+where $\underline{n}$ is a unit vector.
+In special relativity, we can write Newton's Law as
+$$\frac{\mathrm dP}{\mathrm d\tau}=F$$
+where $F$ is the $4$-force, i.e.
+$$F=\gamma_u\begin{pmatrix}
+    \underline{F}\cdot\underline{u}/c\\
+    \underline{F}
+\end{pmatrix}$$
+which is also a $4$-vector.
+Note that if we transform from proper time to time experienced, then Newton's Second Law pops up, so it is consistent.
+Equivalently, for a particle with rest mass $m$, then one can write $F=mA$ where $A=\mathrm dU/\mathrm d\tau$ is the $4$-acceleration.
+\subsection{Examples in Particle Physics}
+We want to explore the use of the conservation of total $4$-momentum in problems in particle physics.
+Consider $P=(E/c,\underline{p})^\top$ for a system of particles.
+A useful way to consider the system is to introduce the notion of a center-of-momentum frame (CM frame), which is the frame where the total $4$-momentum is $0$ (possible whenever all particles have positive rest mass).
+\begin{example}
+    Particle decay.
+    Consider a particle of mass $m_1$ with momentum $P_1$ which is deemed to decay into two particles of mass $m_2,m_3$ and momenta $P_2,P_3$ respectively.
+    So we have $P_1=P_2+P_3$.
+    Consider the zero component, then $E_1=E_2+E_3$.
+    Consider the spacial components gives $\underline{p_1}=\underline{p_2}+\underline{p_3}$.
+    In the CM frame, $P_1=0$, therefore $P_2=-P_3$.
+    Also
+    $$m_1c=E_1/c=E_2/c+E_3/c=\sqrt{|\underline{p_2}|^2+m_2^2c^2}+\sqrt{|\underline{p_3}|^2+m_3^2c^2}\ge (m_2+m_3)c$$
+    So this decay is possible only if $m_1\ge m_2+m_3$.
+    Note that is possible that we don't have the equality (unlike in Newtonian mechanics) where some mass has been converted to energy.
+\end{example}
+\begin{example}
+    A Higgs particle $h$ is decayed into two photons $\gamma$, then $P_h=P_{\gamma_1}+P_{\gamma_2}$, then in the rest frame of $h$, $P_h=(m_hc,\underline{0})$.
+    So if we look at the spacial components, then $\underline{0}=\underline{P_{\gamma_1}}+\underline{P_{\gamma_2}}$.
+    And since the photons have zero rest mass,
+    $$\frac{E_{\gamma_1}}{c}=|\underline{p_{\gamma_1}}|=|\underline{p_{\gamma_2}}|=\frac{E_{\gamma_2}}{c}$$
+    So each of the photons has half of the Higgs particle's total energy.
+    Note that in this case mass does not conserve.
+\end{example}
+\begin{example}
+    Consider two identical particles which collide and retain their identities.
+    Let $P_1,P_2$ be the $4$-momenta before and $P_3,P_4$ after respectively.
+    Suppose $S$ is the laboratory frame where $\underline{p_2}=0$, let the horizontal to be the line joining the two particles and let $\theta$ be the inclination of particle $1$ after the collision and $\phi$ be that of particle $2$.
+    We want to study the relationship between $\theta$ and $\phi$.\\
+    Now we go to the CM frame where the particles are horizontal before the collision, then the trajectories form two lines crossing each other.
+    Let $\theta'$ be the angle between those two lines.
+    Let $v$ be the speeds before the collision and $w$ be that after.
+    We put a $'$ to indicate we are in the CM frame.
+    Then
+    $$P_1'=\begin{pmatrix}
+        m\gamma_vc\\
+        m\gamma_vv\\
+        0\\
+        0
+    \end{pmatrix},P_2'=\begin{pmatrix}
+        m\gamma_vc\\
+        -m\gamma_vv\\
+        0\\
+        0
+    \end{pmatrix}$$
+    and
+    $$P_3'=\begin{pmatrix}
+        m\gamma_wc\\
+        m\gamma_ww\cos\theta'\\
+        m\gamma_ww\sin\theta'\\
+        0
+    \end{pmatrix},P_4'=\begin{pmatrix}
+        m\gamma_wc\\
+        -m\gamma_ww\cos\theta'\\
+        -m\gamma_ww\sin\theta'\\
+        0
+    \end{pmatrix}$$
+    The first component gives $v=w$.
+    Now we apply the Lorentz transformation from the CM frame $S'$ back to $S$.
+    The velocity of the transformation is $v$, so
+    $$\Lambda=\begin{pmatrix}
+        \gamma_v&\gamma_vv/c&0&0\\
+        \gamma_vv/c&\gamma_v&0&0\\
+        0&0&1&0\\
+        0&0&0&1
+    \end{pmatrix}$$
+    Now before the collision,
+    $$P_1=\begin{pmatrix}
+        m\gamma_v^2(c+v^2/c)\\
+        m\gamma_v^2(v+v)\\
+        0\\
+        0
+    \end{pmatrix}=\begin{pmatrix}
+        m\gamma_uc\\
+        m\gamma_uu
+    \end{pmatrix}$$
+    where $u$ is the initial velocity of particle $1$.
+    Consider the situation after the collision and set $q$ to be the velocity of particle $1$ after the collision, we get
+    $$P_3=\begin{pmatrix}
+        m\gamma_v^2(c+(v^2/c)\cos\theta')\\
+        m\gamma_v^2(v+v\cos\theta')\\
+        m\gamma_vv\sin\theta'\\
+        0
+    \end{pmatrix}=\begin{pmatrix}
+        m\gamma_qc\\
+        m\gamma_qq\cos\theta\\
+        m\gamma_qq\sin\theta\\
+        0
+    \end{pmatrix}$$
+    So by comparing the $1$ and $2$ components, we get
+    $$\tan\theta=\frac{m\gamma_v}{m\gamma_v^2}\frac{v\sin\theta'}{v(1+\cos\theta')}=\frac{1}{\gamma_v}\tan\frac{\theta'}{2}$$
+    Similarly,
+    $$\tan\phi=\frac{1}{\gamma_v}\cot\frac{\theta'}{2}$$
+    So $\tan\theta\tan\phi=1/\gamma_v^2=2/(1+\gamma_u)$.
+    When $\gamma_u\to 1$ (i.e. in the Newtonian limit), we get $\tan\theta\tan\phi=1$, so the angle after the collision would be $\pi/2$.
+\end{example}

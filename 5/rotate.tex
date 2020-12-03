@@ -1,0 +1,103 @@
+\section{Rotating Frames of Reference}
+Newton's Second Law works only in inertial frames.
+A rotating frame of reference (wrt an inertial frame) is clearly non-inertial in general.
+So the equation of motion in this frame needs to be modified relative to Newton's Second Law.\\
+Let $S$ be an inertial frame and $S'$ another frame that is rotating along $z$-axis in $S$ with angular velocity $\omega=\dot\theta$ where $\theta$ is the angle between $x,y$-axis in $S$ and in $S'$.
+Denote the basis vectors of $S$ by $\underline{e_1}=\underline{\hat{x}},\underline{e_2}=\underline{\hat{y}},\underline{e_3}=\underline{\hat{z}}$ and that of $S'$ by $\underline{e_1'}=\underline{\hat{x}}',\underline{e_2'}=\underline{\hat{y}}',\underline{e_3'}=\underline{\hat{z}}'$.
+Consider a particle at rest in $S'$ viewed in $S$, then its velocity will be
+$$\left( \frac{\mathrm d\underline{r}}{\mathrm dt} \right)_S=\underline{w}\times\underline{r}=\omega\underline{\hat{z}}\times\underline{r}$$
+Conventionally we take $\omega>0$ as anticlockwise.
+We certainly have some formula that applies to the basis vectors of $S'$, namely
+$$\left( \frac{\mathrm d}{\mathrm dt}\underline{e_i'} \right)_S=\underline{\omega}\times\underline{e_i'}$$
+So for a time-dependent vector $\underline{a}$ we have
+$$\underline{a}(t)=\sum_{i=1}^3a_i'(t)\underline{e_i'}(t)$$
+So when we observe in $S'$, the rate of change has
+$$\left( \frac{\mathrm d}{\mathrm dt}\underline{a}(t) \right)_{S'}=\sum_{i=1}^3\left( \frac{\mathrm d}{\mathrm dt}a_i'(t) \right)\underline{e_i'}(t)$$
+Therefore
+\begin{align*}
+    \left(\frac{\mathrm d}{\mathrm dt}\underline{a}\right)_S&=\sum_{i=1}^3\frac{\mathrm da_i'}{\mathrm dt}\underline{e_i'}+\sum_{i=1}^3a_i'\left( \frac{\mathrm de_i'}{\mathrm dt} \right)_S\\
+    &=\sum_{i=1}^3\frac{\mathrm da_i'}{\mathrm dt}\underline{e_i'}+\sum_{i=1}^3a_i'(\underline{\omega}\times\underline{e_i'})\\
+    &=\left( \frac{\mathrm d}{\mathrm dt}\underline{a} \right)_{S'}+\underline{\omega}\times\underline{a}
+\end{align*}
+Which is the key identity that relates rate of change in one frame to that in the other.
+If we apply this to the position vector $\underline{r}$, then
+$$\left(\frac{\mathrm d}{\mathrm dt}\underline{r}\right)_S=\left( \frac{\mathrm d}{\mathrm dt}\underline{r} \right)_{S'}+\underline{\omega}\times\underline{r}$$
+And applying to velocity,
+\begin{align*}
+    \left( \frac{\mathrm d^2\underline{r}}{\mathrm dt^2} \right)
+    &=\left( \left( \frac{\mathrm d}{\mathrm dt} \right)_{S'}+\underline{\omega}\times \right)\left( \left( \frac{\mathrm d}{\mathrm dt}\underline{r} \right)_{S'}+\underline{\omega}\times\underline{r} \right)\\
+    &=\left( \frac{\mathrm d^2\underline{r}}{\mathrm dt^2} \right)_{S'}+2\underline{\omega}\times\left( \frac{\mathrm d\underline{r}}{\mathrm dt} \right)_{S'}+\underline{\dot{\omega}}\times\underline{r}+\underline{\omega}\times(\underline{\omega}\times\underline{r})
+\end{align*}
+This gives the acceleration.
+\subsection{Equation of Motion in a Rotating Frame}
+$S$ is inertial, therefore Newton's Laws of Motion applies, hence
+$$m\left( \frac{\mathrm d^2\underline{r}}{\mathrm dt^2} \right)_S=\underline{F}$$
+Hence we have
+$$m\left( \frac{\mathrm d^2\underline{r}}{\mathrm dt^2} \right)_{S'}=\underline{F}-m\left( 2\underline{\omega}\times\left( \frac{\mathrm d\underline{r}}{\mathrm dt} \right)_{S'}+\underline{\dot{\omega}}\times\underline{r}+\underline{\omega}\times(\underline{\omega}\times\underline{r}) \right)$$
+The second term is known as the fictitious forces, whcih are needed to explain the motion observed in a non-intertial frame.
+We give names to each term in the fictitious forces:\\
+Coriolis force: $-2m\underline{\omega}\times(\mathrm d\underline{r}/\mathrm dt)_{S'}$.\\
+Euler force: $-m\underline{\dot{\omega}}\times\underline{r}$.\\
+Centrifugal force: $-m\underline{\omega}\times(\underline{\omega}\times\underline{r})$.
+Sometimes we take $\underline{\omega}$ to be constant, so the Euler force will be zero.
+\subsection{Centrifugal Force}
+Note that for $\underline{\omega}=\omega\underline{\hat{\omega}}$ with $\underline{\hat{\omega}}$ being unit,
+\begin{align*}
+    -m\underline{\omega}\times(\underline{\omega}\times\underline{r})&=-m((\underline{\omega}\cdot\underline{r})\omega-|\underline{\omega}|^2\underline{r})\\
+    &=m\omega^2(\underline{r}-\underline{\hat{\omega}}(\underline{\hat{\omega}}\cdot\underline{r}))\\
+    &=m\omega^2\underline{r}_\perp
+\end{align*}
+where $\underline{r}_\perp$ is the projection of $\underline{r}$ onto the plane that is perpendicular to $\underline{\omega}$, that is basically the plane of rotation.
+So the centrifugal force is directed away from the rotatrion axis and its magnitude is $m\omega^2d$ where $d$ is the distance of the particle to the rotation axis.
+Note that
+$$|\underline{r}_\perp|^2=|\underline{r}|^2-(\underline{\hat{\omega}}\cdot\underline{r})^2=|\underline{r}\times\underline{\hat\omega}|^2$$
+While we also have $\nabla{|\underline{r}_\perp|^2}=2\underline{r}-2\underline{\hat\omega}(\underline{\hat\omega}\cdot\underline{r})=2\underline{r}_\perp$.
+Therefore
+$$m\omega^2\underline{r}_\perp=\nabla\left( \frac{1}{2}m|\underline{r}\times\underline{\omega}|^2 \right)$$
+Therefore the centrifugal force is a potential force.
+On a rotating planet, we can combine the centrifugal force with gravitational force to create the notion of an effective gravity $\underline{g}_{\rm eff}=\underline{g}+\omega^2\underline{r}_\perp$.
+Consider a point $P$ on the surface of the rotating planet, where the rotation axis is through the poles.
+We define a local coordinate at $P$ where $\underline{\hat{z}}$ is the normal pointing outwards, $\underline{\hat{y}}$ is tangent northward, and $\underline{\hat{x}}$ is the tangent eastward.
+Assume that the point $P$ is at latitude $\lambda$.
+So $\underline{r}=R\underline{\hat{z}}$ where $R$ is the radius of the planet.
+Also, as for the angular velocity, $\underline{\omega}=\omega(\underline{\hat{y}}\cos\lambda+\underline{\hat{x}}\sin\lambda)$.
+\begin{align*}
+    \underline{g}_{\rm eff}&=-g\underline{\hat{z}}+\omega^2R\cos\lambda(\underline{\hat{z}}\cos\lambda-\underline{\hat{y}}\sin\lambda)\\
+    &=-(g-\omega^2R\cos^2\lambda)\underline{\hat{z}}-\omega^2R\cos\lambda\sin\lambda\underline{\hat{y}}
+\end{align*}
+So the angle between $\underline{g}$ and $\underline{g}_{\rm eff}$ would be
+$$\alpha=\tan^{-1}\left( \frac{\omega^2R\cos\lambda\sin\lambda}{g-\omega^2R\cos^2\lambda} \right)$$
+For earth, $\omega\approx 2\pi/86400$, so upon calculation, we obtain $\alpha\approx 3.5\times 10^{-3}$ which is very small.
+\subsection{The Coriolis Force}
+The coriolis force
+$$-2m\underline{\omega}\times(\mathrm d\underline{r}/\mathrm dt)_{S'}=-2m\underline{\omega}\times\underline{v}$$
+is perpendicular to the velocity, so it does not do any work.
+This is just like the magnetic force.
+We consider te horizontal motion on a rotating planet again.
+The velocity is given by $\underline{v}=v_x\underline{\hat{x}}+v_y\underline{\hat{y}}$.
+As before in our choice of model we have $\underline{\omega}=\omega(\underline{\hat{y}}\cos\lambda+\underline{\hat{z}}\sin\lambda)$.
+Therefore
+\begin{align*}
+    -2m\underline{\omega}\times\underline{v}&=-2m\omega(\underline{\hat{y}}\cos\lambda+\underline{\hat{z}}\sin\lambda)\times v_x\underline{\hat{x}}+v_y\underline{\hat{y}}\\
+    &=2m\omega\sin\lambda(v_y\underline{\hat{x}}-v_x\underline{\hat{y}})+2m\omega\cos\lambda v_x\underline{\hat{z}}
+\end{align*}
+So by considering tthe sign, the horizontal coriolis force gives a acceleration, which is to the right if we are on the northern hemisphere, and to the left on the southern hemisphere.
+In atmosphere, the coriolis force can be balanced by a pressure gradient.
+The horizontal motion then gives the difference in the direction of cyclones, which is anticlockwise in northern hemisphere and clockwise in the southern hemisphere.
+\begin{example}
+    Consider a ball dropped from the top of a tower, we want to know where does it land.
+    We have
+    $$\underline{\ddot{r}}=\underline{g}-2\underline{\omega}\times\underline{\dot{r}}-\underline{\omega}\times(\underline{\omega}\times\underline{r})=\underline{g}-2\underline{\omega}\times\underline{\dot{r}}+O(\omega^2)$$
+    where the rotation is slow (i.e. $\omega^2R/g$ is small).
+    Integrate it to get
+    $$\underline{\dot{r}}=\underline{g}t-2\underline{\omega}\times (\underline{r}-\underline{r}(0))+O(\omega^2)$$
+    We substitute this back to the original equation to get $\underline{\ddot{r}}=\underline{g}-2\underline{\omega}\times(\underline{g}t)+O(\omega^2)$, which solves to
+    $$\underline{r}=\underline{r}(0)+\frac{1}{2}\underline{g}t^2-\underline{\omega}\times\underline{g}\frac{t^3}{3}+O(\omega^2)$$
+    So if we take $\underline{g}=(0,0,-g),\underline{\omega}=(0,\omega,0)$ and $\underline{r}(0)=(0,0,R+h)$, then
+    $$\underline{r}=\left(\frac{1}{3}\omega gt^3,0,R+h-\frac{1}{2}gt^2\right)$$
+    So the time to reach the ground would be $t=\sqrt{2h/g}$, then it would travel a horizontal distance of approximately
+    $$\frac{1}{3}\omega g\left(\frac{2h}{g}\right)^{3/2}$$
+\end{example}
+(Foucaul Pendulum)
+Consider a pendulum at north pole, then the plane of its oscillation is rotating opposing the direction of rotation of the earth.
+At latitude $\lambda$, the angular velocity of plane of rotation is $\omega\sin\lambda$, therefore the period $2\pi/(\omega\sin\lambda)$ which is greater than a day if $\lambda<\pi/2$.

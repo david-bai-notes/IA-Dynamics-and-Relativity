@@ -1,0 +1,243 @@
+\section{Forces}
+\subsection{Force and Potential Energy in One (Spacial) Dimension}
+Consider a point mass $m$ moving on a straight line with position given by $x(t)$.
+We assume that the force $F=F(x)$ depends entirely on position, not velocity and time.
+\begin{definition}
+    The potential energy $V(x)$ is any function that satisfies $F(x)=-\mathrm dV/dx$.
+\end{definition}
+Equivalently,
+$$V(x)=V(0)+\int_0^xF(x)\,\mathrm dx$$
+where $V(0)$ can be taken arbitrarily.
+The equation of motion is simply $m\ddot{x}=-\mathrm dV/dx$ by Newton's Second Law.
+\begin{definition}
+    The KInetic energy $T$ is defined by $T=m|\dot{x}|^2/2$
+\end{definition}
+\begin{theorem}
+    Under the assumptions and definitions above, we have $\mathrm d(T+V)/\mathrm dt=0$.
+\end{theorem}
+\begin{proof}
+    $$\frac{\mathrm d(T+V)}{\mathrm dt}=\frac{2m\dot{x}\ddot{x}}{2}+\frac{\mathrm dV}{\mathrm dx}\frac{\mathrm dx}{\mathrm dt}=\dot{x}(m\ddot{x}+\frac{\mathrm dV}{\mathrm dx})=0$$
+    By Newton's Second Law.
+\end{proof}
+Note that if we lost that restriction on the time and velocity independence of the force, we lose the conservation of energy in general.
+\begin{example}
+    Consider a harmonic oscillator, so $F(x)=-kx$ where $k$ is a positive constant.
+    So $V(x)=kx^2/2$ by choosing the arbitrary constant as $0$.
+    We want to calculate all the stuff to verify the conservation of energy.
+    \footnote{Hey, you literally just proved it.}
+    We can solve the motion by solving $m\ddot{x}=-kx$ which solves to $x=A\sin(\sqrt{k/m}t)+B\cos(\sqrt{k/m}t)$.
+    And plugging in gives $\mathrm dE/\mathrm dt=0$.
+\end{example}
+As the first instance of Newton's Second Law, the conservation of energy is a useful rule to determine a one dimensional motion.
+Using conservation of energy, we have
+$$\dot{x}=\pm\sqrt{\frac{2}{m}(E-V(x))}$$
+which is a first order ODE.
+So
+$$\int_{x_0}^x\frac{\mathrm du}{\sqrt{2(E-V(u))/m}}=t-t_0$$
+where $x(t_0)=x_0$.
+In principle we can solve it to obtain the motion.\\
+We can also have some qualitative insight from conservation of energy.
+Consider $V(x)=\lambda(x^3-3\beta^2x)$ where $\lambda,\beta>0$ are constants.
+We can sketch the potential energy to find that $V$ has a local maximum at $-\beta$, which value happens again at $x=2\beta$.
+And it has a local minimum at $\beta$, where it again obtain the same value at $-2\beta$.
+So we can find certain properties of the motion from the graph if the motion start at rest, then we must have $V(x)\le V(x_0)$\\
+Case 1: $x_0<-\beta$, it will moves to left so as to reduce the potential and gain speed.\\
+Case 2: $-\beta<x_0<2\beta$, then the particle will be restricted in the region $-\beta<x_0<2\beta$ and will oscillate.\\
+Case 3: $x_0>2\beta$, then it will move to the right.\\
+The case becomes special if we turn to the stationary (or equilibrium) points.
+Obviously $x_0=-\beta$ is an unstable fixed point and $x_0=\beta$ is a stable fixed points.
+So at $x_0=2\beta$, it will end its notion at the fixed point $x=-\beta$.
+In this case, we can analyse the behaviour by writing down the integral.
+This can show that the time to reach $x=-\beta$ is infinite when we approach to $2\beta$.
+\subsection{Equilibriums}
+The points $x=\pm\beta$ in this case are called equilibrium points, at which the particle can always stay at rest.
+The condition for this to happen is $V^\prime(x_0)=0$.
+We are going to analyze the motion near the equilibrium at $x_0$ by expanding its Taylor series
+$$V(x)\approx V(x_0)+(x-x_0)V^\prime(x_0)+\frac{(x-x_0)^2}{2}V^{\prime\prime}(x_0)=V(x_0)+\frac{(x-x_0)^2}{2}V^{\prime\prime}(x_0)$$
+We assume for a moment that $V^{\prime\prime}(x_0)$ does not vanish.
+\footnote{If it does vanish, we will have to look at higher order terms.}
+So we have $m\ddot{x}=-(x-x_0)V^{\prime\prime}(x_0)$.\\
+If $V^{\prime\prime}(x_0)>0$, it's a minimum of $V$ which produces the equation of a harmonic oscillator with period $\sqrt{V^{\prime\prime}(x_0)/m}$.
+In this case, we say it is a stable equilibrium.\\
+If $V^{\prime\prime}(x_0)<0$, it's a maximum of $V$ which produces the equation of an exponentially growing solution.
+Hence it is an unstable equilibrium with growth rate $\sqrt{-V^{\prime\prime}(x_0)/m}$.
+\begin{example}
+    We look back to a pendulum with mass $m$, length $l$ and angle $\theta$.
+    If we think of Newton's Second Law, one can obtain
+    $$F=ml\ddot{\theta}=-mg\sin\theta=-\frac{\mathrm d}{\mathrm d\theta}(-mg\cos\theta)$$
+    So we have $E=T+V=ml^2\dot{\theta}^2/2-mgl\cos\theta$.
+    One can check that $\dot{E}=0$.
+    Also the potential $V(\theta)=-mg\cos\theta$ has stable equilibrium at $\theta=2\pi k,k\in\mathbb Z$ and unstable at $\theta=\pi+2\pi k,k\in\mathbb Z$.
+    So if the initial value of $\theta$ is in $(-\pi,\pi)$ (or $|V|<mgl$), the pendulum will oscillate.
+    If $|V|>mgl$, then it will go round and round.\\
+    Now we want to analyze the period of oscillations.
+    Suppose the original angle is at $\theta_0\in (0,\pi)$, then the oscillation is going to be $\theta_0\to 0\to-\theta_0\to0\to\theta_0$, so the period is $4$ times the time taken for $\theta_0$ to $0$, hence
+    $$P=4\int_0^{\theta_0}\frac{\mathrm d\theta}{\sqrt{2gl(\cos\theta-\cos\theta_0)/l^2}}=4\sqrt{\frac{l}{g}}\int_0^{\theta_0}\frac{\mathrm d\theta}{\sqrt{2\cos\theta-2\cos\theta_0}}=\sqrt{\frac{l}{g}}F(\theta_0)$$
+    For small $\theta_0$ we have
+    $$F(\theta_0)\approx 4\int_0^{\theta_0}\frac{\mathrm d\theta}{\sqrt{\theta_0^2-\theta^2}}=2\pi$$
+    Hence $P\approx 2\pi\sqrt{l/g}$.
+\end{example}
+\subsection{Force and Potential in Three Dimensions}
+Consider a particle $\underline{r}$ in motion in three dimensional space.
+Then $m\underline{\ddot{r}}$ and $T=m|\underline{\dot{r}}|^2/2$.
+And the rate of change of $T$ is then
+$$\frac{\mathrm dT}{\mathrm dt}=m\underline{\dot{r}}\cdot\underline{\ddot{r}}=\underline{\dot{r}}\cdot\underline{F}$$
+Suppose the particle tranverse a path $C$ from $t_0$ to $t_1$, then
+\begin{definition}
+    The work done is
+    $$\int_{t_0}^{t_1}\underline{F}\cdot\underline{\dot{r}}\,\mathrm dt=\int_C\underline{F}\cdot\mathrm d\underline{r}$$
+\end{definition}
+We can also write that the total work equals
+$$\int_C\underline{F}\cdot\mathrm d\underline{r}=\int_C F_x\,\mathrm dx+F_y\,\mathrm dy+F_z\,\mathrm dz$$
+Suppose that the force is a function of the position $\underline{F}(\underline{r})$ (also called a force field).
+\begin{definition}
+    A force field $\underline{F}(\underline{r})$ is called conservative if $\underline{F}=\nabla V$ for some $V:\mathbb R^3\to\mathbb R$.
+\end{definition}
+If a force field $\underline{F}(\underline{r})$ is conservative, we say $V$ is the potential function.
+Also in this case $E=T+V(\underline{r})$ conserved.
+Indeed,
+$$\frac{\mathrm dE}{\mathrm dt}=\frac{\mathrm dT}{\mathrm dt}+\frac{\mathrm dV}{\mathrm dt}=m\underline{\dot{r}}\cdot\underline{\ddot{r}}+\nabla V\cdot\underline{\dot{r}}=\underline{\dot{r}}\cdot(m\underline{\ddot{r}}-\underline{F})=0$$
+The total work done by a conservative force $\underline{F}$ is
+$$\int_C\underline{F}\cdot\mathrm d\underline{r}=\int_C-\nabla V\cdot\mathrm d\underline{r}=V(\underline{r}(t_0))-V(\underline{r}(t_1))$$
+So the work done is independent of the path taken.\\
+In particular, if the curve is closed, no work is done.\\
+$\underline{F}$ is conservative if $\nabla\times\underline{F}=\underline{0}$ (given that the domain is simply connected).
+\subsection{Angular Momentum}
+\begin{definition}
+    The angular momentum for a particle with mass $m$ and velocity $\underline{\dot{r}}$ is defined as
+    $$\underline{L}=\underline{r}\times\underline{p}=m\underline{r}\times\underline{\dot{r}}$$
+    And
+    $$\underline{G}=\frac{\mathrm d\underline{L}}{\mathrm dt}=m\underline{\dot{r}}\times\underline{\dot{r}}+m\underline{r}\times\underline{\ddot{r}}=\underline{r}\times\underline{F}$$
+    is defined as the torque, or moment of force.
+\end{definition}
+Note that $\underline{L},\underline{G}$ both depend on the choice of origin, so we must specify them when talking about angular stuff.
+\begin{remark}
+    If $\underline{r}\times\underline{F}=\underline{0}$ then $\underline{G}=0$, thus $\underline{L}$ is constant.
+    In this case, we say the angular momentum is conserved.
+\end{remark}
+\subsection{Central Forces}
+A special type of conservative force occurs when the potential $V$ depends entirely on $|\underline{r}|$, so $V(\underline{r})=V(|\underline{r}|)=V(r)$,
+\footnote{It's just a tiny abuse of notation. vErY tInY.}
+$$\underline{F}(\underline{r})=-\nabla V(|\underline{r}|)=-\frac{\mathrm dV}{\mathrm dr}\underline{\hat{r}},\underline{\hat{r}}=\frac{\underline{r}}{|\underline{r}|}$$
+So $\underline{F}$ and $\underline{r}$ are parallel, therefore $\mathrm d\underline{L}/\mathrm dt=\underline{G}=\underline{F}\times\underline{r}=0$.
+\subsection{Gravity}
+Recall that Newton's Gravitational Law states
+$$V=-\frac{GMm}{|\underline{r}|},\underline{F}=-\nabla V=-\frac{GMm}{|\underline{r}|^2}\underline{\hat{r}}=-\frac{GMm}{|\underline{r}|^3}\underline{r}$$
+Note that the $m$ here can be ignored (in the way shown below) if we are only interested in the motion due to Newton's Second law:
+\begin{definition}
+    The gravitational potential is defined by $\Phi_g(\underline{r})=V/M=-GM/|\underline{r}|$, and the gravitational field by $\underline{g}=-\nabla\Phi_g(\underline{r})=-GM\underline{\hat{r}}/r^2$.
+\end{definition}
+The gravitational field and its potential, as functions, are dependent of $M$ alone.
+We also have $m\Phi_g=V,m\underline{g}=\underline{F}$.
+For a set of more than one masses, we can simple generalize by adding the corresponding fields and potential together by the superposition principle.
+Hence for continuous bodies, we can replace the sum by an integral.
+In particular, if the body is spherical with radius $R$ and we have $|\underline{r}|>R$, then we do have $\Phi_g(\underline{r})=-GM/|\underline{r}|$, thus spherical bodies do behave like a point when measuring from above its surface.
+\begin{note}
+    The mass $m$ in Newton's Second Law $m\underline{\ddot{r}}=\underline{F}$ is called the inertial mass, whilist the mass in Newton's Gravitational Law $\underline{F}=-GMm\underline{r}/|\underline{r}|^2$ is the gravitational mass.
+    These two definitions of mass are different in relativity but are very closely related (about a difference of $10^{-12}$).
+    The precise difference will be discussed in General Relativity.
+\end{note}
+There are a few results about the effect of gravity.
+\begin{example}[Potential Energy near the Surface]
+    For a mass $m$ at height $z$ above a spherical mass $M$ with radius $R$, if $z<<R$, then the potential energy is given by
+    \begin{align*}
+        V(R+z)&=-\frac{GMm}{R+z}\\
+        &=-\frac{GMm}{R}+\frac{GMm}{R^2}z+o(R^{-2})\\
+        &\approx -\frac{GMm}{R}+mgz\\
+        &=\text{const}+mgz
+    \end{align*}
+    For earth, we have the approximation $g\approx 9.8{\rm ms^{-2}}$
+\end{example}
+\begin{example}[Escape Velocity]
+    We want to find the critical velocity $\underline{v}$, perpendicular to $\underline{r}$, to leave a planet.
+    Due to the conservation of energy $E=T+V=m|\underline{v}|^2/2-GMm/R$, the particle can escape (i.e. $\underline{v}$ is nonnegative at infinity) iff the initial energy has $E_0\ge 0$, which happens iff
+    $$m|\underline{v}|^2/2\ge GMm/R\implies |\underline{v}|\ge \sqrt{\frac{2GM}{R}}=v_{\rm esc}$$
+\end{example}
+\subsection{Electromagnetic Forces}
+We have seen previously that for a point charge $q$, the force has the expression $\underline{F}=q(\underline{E}+\underline{\dot{r}}\times\underline{B})$
+In general $\underline{E},\underline{B}$ are functions of $\underline{r}$ and $\underline{t}$.
+These are known as the Lorentz Force Law.
+For convenience or something, we are going to restrict ourselves to time-independent fields.
+So we want the electric field to be conservative, i.e. $\underline{E}=-\nabla\Phi_e$ where $\Phi_e$ is called the electrostatic potential.
+\begin{claim}
+    In a time-independent electromagnetic field, the energy
+    $$E=T+V=\frac{m|\underline{\dot{r}}|^2}{2}+q\Phi_e(\underline{r})$$
+    is conserved.
+\end{claim}
+\begin{proof}
+    \begin{align*}
+        \frac{\mathrm dE}{\mathrm dt}&=\frac{\mathrm d}{\mathrm dt}\left(\frac{m|\underline{\dot{r}}|^2}{2}+q\Phi_e(\underline{r})\right)\\
+        &=m\underline{\dot{r}}\cdot\underline{\ddot{r}}-q\underline{\dot{r}}\cdot\underline{E}\\
+        &=\underline{\dot{r}}(m\underline{\ddot{r}}-q\underline{E})\\
+        &=0
+    \end{align*}
+    So $E$ is constant.
+\end{proof}
+\begin{law}
+    Now consider a point charge $Q$ located at the origin.
+    It generates an electrostatic field
+    $$\Phi_e(\underline{r})=\frac{Q}{4\pi\epsilon_0|\underline{r}|},\underline{E}=\frac{Q}{4\pi\epsilon_0|\underline{r}|^2}\underline{\hat{r}}$$
+    where $\epsilon_0$ is called the electric constant.
+\end{law}
+So the force exerted on our point charge $q$ is
+$$\underline{F}=q\underline{E}=\frac{Qq}{4\pi\epsilon_0|\underline{r}|^2}\underline{\hat{r}}$$
+which is called the Coulomb force.
+One observe the similarity of this with the gravitational law (inverse-square law).
+Also, by considering the signs, we find that same signed charges repel, opposite charges attract.
+\subsection{Friction}
+The friction is a contact force, which occurs when two body touches each other (they may not be of the same form though).
+It is a convenient description of complicated molecular-scale physics.
+So friction is not a kind of fundamental forces (gravity, EM, strong force, weak force).\\
+We first consider a special kind of friction that is \textit{dry friction}.
+Solids stand on each other exerts an action and reaction pair of normal forces (normal to the surface of contact), which prevents an object from merging with the other.
+There is also a tangential force, which is a tangent to the trajectory on the surface where the solid is moving.\\
+Now imagine we place a block on a slope.
+If it remains at rest, the tangential force is called the static force, which exists even without relative motion.
+In this case we have
+\begin{law}
+    The static force $\underline{F}$ has $|\underline{F}|\le\mu_s|\underline{N}|$ where $\mu_s$ is a constant (depending on the materials) called the coefficient of static friction, and $\underline{N}$ is the normal force.
+\end{law}
+So the block can rest on the plane provided that $\alpha\le\tan^{-1}(\mu_s)$ where $\alpha$ is the inclination.\\
+There is a kinetic frictional force as well, which depends on the kinetic motion of the object.
+\begin{law}
+    The kinetic frictional force has $\underline{F}=\mu_k|\underline{N}|$ where $\mu_k$ is also a constant depending on the materials.
+\end{law}
+Normally $\mu_s>\mu_k>0$.\\
+The most complicated type of friction is the \textit{fluid drag}, which is the friction exerted by a solid moving in fluid medium.
+The model of linear drag says that
+$$\underline{F}=-k_1\underline{\underline{u}}$$
+where $\underline{u}$ is the velocity along the direction of motion and $k$ is a constant.
+This model is relevent if we are considering a small object moving through a viscous fluid.
+\begin{law}[Stokes' Law]
+    Consider a sphere with radius $R$ moving in a viscous fluid with viscosity of $\eta$, then we have $k_1=6\pi\eta R$.
+\end{law}
+Another drag regime is called the quadratic model, which is for large bodies moving in less viscous fluid.
+$$\underline{F}=-k_2|\underline{u}|\underline{u}$$
+Typically we have $\rho R^2C_0$ where $\rho$ is the density of the fluid, $R$ is the radius and $C_0$ is the drag coefficient.\\
+In the case of a linear drag, the rate of work done is $\underline{F}\cdot\underline{u}=-k_1|\underline{u}|^2$ and for quadratic law $\underline{F}\cdot\underline{u}=-k_2|\underline{u}|^3$.
+The fluid gains energy due to this energy loss by the solid, obviously.\\
+Recall from differential equations that the damp oscillator $m\ddot{x}=-kx-\lambda\dot{x}$ where the last term is a drag.
+We know how to solve this.
+\begin{example}
+    Projectiles moving under uniform gravity and experiencing linear drag force.
+    The equation of motion is hence
+    $$m\ddot{x}=m\underline{g}-k\underline{\dot{x}}$$
+    Consider the particle start at the origin with some velocity $\underline{U}$, so the initial conditions are $\underline{x}(0)=\underline{0},\underline{\dot{x}}(0)=\underline{U}$.
+    We can solve the equation in $\underline{\dot{x}}$ and substituting the initial condition gives
+    $$\underline{\dot{x}}=\frac{m\underline{g}}{k}+(\underline{U}-m\underline{g}/k)e^{-kt/m}$$
+    Integrate it again and plug in the other initial condition,
+    $$\underline{x}=\frac{m\underline{g}}{k}t+\frac{m}{k}(\underline{U}-m\underline{g}/k)(1-e^{-kt/m})$$
+    Set $\underline{x}=(x,y,z),\underline{U}=U(\cos\theta,0,\sin\theta),\underline{g}=(0,0,-g)$.
+    Hence we have, by simply plugging things in, that $y$ direction is irrelevant at all, while
+    $$\dot{x}=U\cos\theta e^{-kt/m},\dot{y}=0,\dot{z}=(U\sin\theta+mg/k)e^{-kt/m}-mg/k$$
+    so the $x$-velocity will eventually go to $0$ and $z$ velocity to a terminal value $mg/k$ (roughly after $t=m/k$).\\
+    As for displacement, we have
+    $$x=mU\cos\theta/k(1-e^{-kt/m}),z=-mgt/k+m/k(U\sin\theta+mg/k)(1-e^{-kt/m})$$
+    so $x$ is bounded but $z$ is eventually moving (linearly as $t$ large).\\
+    Now we want to turn to analyze the range $R(U,\theta,m,k,g)$ of the projectile for it to reach its original position (assuming we project it upwards), so by dimensional analysis we get the dimensionless quantity to be $f(\theta,kU/mg)=f(\theta,(U/g)/(m/k))$.
+    Note that $U/g$ is proportional to the time taken to reduce velocity such that it vanishes; and $m/k$ is the approximate time to achieve the terminal velocity.
+    So weak friction means $kU/mg<<1$ and strong firction means $kU/mg>>1$.\\
+    We have $R=U^2/gf(\theta,kU/mg)$.
+    If $kU/mg<<1$, then $R\approx U^2/g(2\sin\theta\cos\theta)$.
+    If $kU/mg>>1$, then $R\approx U^2/g(\cos\theta(mg/kU))$.
+\end{example}

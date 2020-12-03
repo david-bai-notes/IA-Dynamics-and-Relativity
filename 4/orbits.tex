@@ -1,0 +1,167 @@
+\section{Orbits}
+The study of orbits it is motivated by the motion of heavenly bodies under the infludence of the gravitational force due to e.g. a star.
+Of course, we want to study a conservative field $-\nabla V$ where $V$ is a potential of a central force (so it only depends on $r=|\underline{r}|$), that is
+$$m\underline{\ddot{r}}=-\nabla V(r)$$
+We shall study the case when the central body is much more massive than the orbiting body, so that the central body can be regarded as fixed.\\
+Recall that $\underline{L}=m\underline{r}\times\underline{\dot{r}}$, and in the case for a central force $\underline{\dot{L}}=0$, so $\underline{L}$ is constant.
+Also we always have $\underline{L}\cdot\underline{r}=0$, so we can regard the motion as if it is in a plane.
+\subsection{Polar Coordinates in a Plane}
+In an orbit problem, we of course want to use polar coordinate to simplify calculation.
+Since we can regard the problem as two-dimensional, we can use the plane polar coordinates $x=r\cos\theta,y=r\sin\theta$, so we define the unit vectors
+$$\underline{e_r}=(\cos\theta,\sin\theta)^\top,\underline{e_\theta}=(-\sin\theta,\cos\theta)^\top$$
+So we can use $\underline{e_r},\underline{e_\theta}$ as two basis vectors, but note that they are dependent of the position.
+Note that $\underline{e_r}$ is always in the direction of the position and $\underline{e_\theta}$ the direction of rotation.
+Also note that $\mathrm d\underline{e_r}/\mathrm d\theta=\underline{e_\theta},\mathrm d\underline{e_\theta}/\mathrm d\theta=-\underline{e_r}$, so
+$$\frac{\mathrm d\underline{e_r}}{\mathrm dt}=\underline{e_\theta}\dot{\theta},\frac{\mathrm d\underline{e_\theta}}{\mathrm dt}=-\underline{e_r}\dot{\theta}$$
+Now we turn to consider the implications for the velocity of the particle given some acceleration.
+Write $\underline{r}=r\underline{e_r}$.
+Consider this as a function of time, then $\underline{v}=\underline{\dot{r}}=\dot{r}\underline{e_r}+r\underline{e_\theta}\dot{\theta}$.
+$\dot{r}$ is the radial component of the velocity while $\dot{\theta}$ is the angular component of it.
+So $\dot{\theta}$ has dimension $T^{-1}$.\\
+As for accelerations, we have
+$$\underline{\ddot{r}}=\underline{\dot{v}}=\ddot{r}\underline{e_r}+\dot{r}\underline{e_\theta}\dot{\theta}+(\dot{r}\dot{\theta}+r\ddot{\theta})\underline{e_\theta}-r\dot{\theta}\underline{e_r}\dot{\theta}=(\ddot{r}-r\dot{\theta}^2)\underline{e_r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\underline{e_\theta}$$
+\begin{example}
+    Consider the circular motion with a constant angular velocity, then $r=a,\dot{\theta}=\omega$, so $\dot{r}=\ddot{\theta}=0$, hence
+    $$\underline{\ddot{r}}=(\ddot{r}-r\dot{\theta}^2)\underline{e_r}+(2\dot{r}\dot{\theta}+r\ddot{\theta})\underline{e_\theta}=-a\omega^2\underline{e_r}=-\omega^2\underline{r}$$
+    which is the familiar centripetal acceleration.
+    Newton's Second Law requires a force to be applied to cause this acceleration, which is called the centripetal force, which is in the direction of $-\underline{e_r}$.
+    For the special case that it is actually a mass on a string, then when the string broke, the mass will move in a straight line that is tangential to the point where the string broke.
+\end{example}
+\subsection{Motion in a Constant Force Field}
+We know
+$$m\underline{\ddot{r}}=\underline{F}=-\nabla V(r)=-\frac{\mathrm dV}{\mathrm dr}\underline{e_r}$$
+for a force field that is symmetric wrt the origin.
+Note that
+$$-\frac{\mathrm dV}{\mathrm dr}\underline{e_r}=\underline{F}=m(\ddot{r}-r\dot{\theta}^2)\underline{e_r}+m(2\dot{r}\dot{\theta}+r\ddot{\theta})\underline{e_\theta}$$
+By looking at the $\underline{e_\theta}$ component, we have $2\dot{r}\dot{\theta}+r\ddot{\theta}=0$, so
+$$\frac{1}{r}\frac{\mathrm d}{\mathrm dt}(mr^2\dot{\theta})=0$$
+Hence the quantity $mr^2\dot{\theta}$ is constant, but $\underline{L}=\underline{r}\times (m\underline{\dot{r}})=mr^2\dot{\theta}\underline{e_z}$.
+Where $\underline{e_z}$ is the normal to the plane of motion.
+Hence the angular momentum is constant in magnitude.
+We write $h=|\underline{L}|/m=r^2\dot{\theta}$.\\
+Going to the radial part $\mathrm dV/\mathrm dr=-m(\ddot{r}-h^2/r^3)$, rearranging gives
+$$m\ddot{r}=-\frac{\mathrm dV}{\mathrm dr}+\frac{mh^2}{r^3}=-\frac{\mathrm dV_{\rm eff}}{\mathrm dr},V_{\rm eff}=V+\frac{mh^2}{2r^2}$$
+So the motion of the particle is as if we are considering one dimensional motion under the influence of a modified potential $V_{\rm eff}$.\\
+The energy of the particle is then
+$$E=T+V=\frac{1}{2}m|\underline{\dot{r}}|^2+V(r)=\frac{1}{2}m\dot{r}^2+V_{\rm eff}(r)$$
+\begin{example}
+    For gravity, we have
+    $$V(r)=-\frac{GMm}{r},V_{\rm eff}(r)=-\frac{GMm}{r}+\frac{mh^2}{2r^2}$$
+    So $V_{\rm eff}$ is minimum at $r=h^2/GM$ and minimum energy is
+    $$E_{\rm min}=-m(GM)^2/(2h^2)$$
+    At the minimum (which is a stable equilibrium), both $r,\dot\theta$ are constants.\\
+    At any $E_{\rm min}<E<0$, the particle oscillates.
+    Let $r_0$ be the point where $V_{\rm eff}=0$, then $r_0<r_{\rm min}\le r\le r_{\rm max}$.
+    So it gives a bounded non-circular orbit with $\dot\theta$ varying when $r$ varies.
+    $r_{\rm min}$ is called the periapsis and $r_{\rm max}$ is called apoapsis.\\
+    For $E>0$, the particle can move from a long distance and escape, which is an unbounded orbit.
+\end{example}
+\subsection{Stability of Circular Orbits}
+Consider the potential $V(r)$, we want to investigate whether a circular orbit exists and whether it is stable.\\
+Assume that the angular momentum $h$ is given and is nonzero.
+For circular orbit $r(t)=r_\star$ is a constant, then
+$$\ddot{r}=0\implies V_{\rm eff}^\prime(r_\star)=0$$
+which is the condition for circular orbit.
+Note that if $V_{\rm eff}^{\prime\prime}(r_\star)>0$, then it is a minimum, so $r_\star$ is a stable fixed point.
+So if we express it as $V(r)$, we get
+$$0=V_{\rm eff}^\prime(r_\star)=V^\prime(r_\star)-\frac{mh^2}{r_\star^3}=0\implies V^\prime(r_\star)=\frac{mh^2}{r_\star^3}$$
+And it is stable if
+$$0<V_{\rm eff}^\prime(r_\star)=V^{\prime\prime}(r_\star)+\frac{3mh^2}{r_\star^4}=V^{\prime\prime}(r_\star)+\frac{3V^\prime(r_\star)}{r_\star}$$
+So in terms of $F(r)$, we have
+$$F^{\prime}(r_\star)+\frac{3F(r_\star)}{r_\star}<0$$
+\begin{example}
+    If we take $V(r)=-km/rp$ for $k,p>0$ for a circular orbit with radius $r_\star$, we can solve the above equation to get $r_\star=(pk/h^2)^{1/(p-2)}$.
+    So unless $p=2$, there exists a circular orbit.\\
+    As for stability, we have
+    $$V^{\prime\prime}(r_\star)+\frac{3V^\prime(r_\star)}{r_\star}=\frac{p(2-p)k}{r_\star^{p+2}}>0$$
+    which is positive iff $p<2$.
+\end{example}
+\subsection{The Orbit Equation}
+The shape of the orbit is obviously governed by the joint variation of $r$ and $\theta$ (both as functions of $t$).
+In principle, the energy equation can be helpful to determine $r(t)$, i.e.
+$$E=\frac{1}{2}m\dot{r}^2+V_{\rm eff}(r)\implies t=\pm\sqrt{\frac{m}{2}}\int\frac{\mathrm dr}{\sqrt{E-V_{\rm eff}(r)}}$$
+Given $r(t)$, since we already know the conservation of angular momentum $r^2\dot\theta=h$, we can then deduce $\theta(t)$.
+But this might not always yield an analytic solution.\\
+An interesting approach if one is only interested in the trajectory is to use $\theta$ as the dependent variable.
+We can write
+$$\frac{\mathrm d}{\mathrm dt}=\dot\theta\frac{\mathrm d}{\mathrm d\theta}=\frac{h}{r^2}\frac{\mathrm d}{\mathrm d\theta}$$
+So plugging in Newton's Second Law,
+$$m\frac{h}{r^2}\frac{\mathrm d}{\mathrm d\theta}\left( \frac{h}{r^2}\frac{\mathrm dr}{\mathrm d\theta} \right)-\frac{mh^2}{r^3}=F(r)$$
+which then becomes, by substituting $u=1/r$,
+$$\frac{\mathrm d^2u}{\mathrm d\theta^2}+u=-\frac{1}{mh^2u^2}F\left(\frac{1}{u}\right)$$
+This is called the orbit equation.
+We can then solve for $u$ as a function of $\theta$, and then $\dot\theta=hu^2$ can help us to deduce the time evolution.
+\subsection{The Kepler Problem}
+We want to solve the case for gravitational central force given by
+$$F(r)=-\frac{mk}{r^2}$$
+So the orbit equation becomes
+$$\frac{\mathrm d^2u}{\mathrm d\theta^2}+u=\frac{k}{h^2}$$
+Which is linear in $u$.
+We know how to solve this.
+Indeed, the general solution is given by
+$$u=\frac{k}{h^2}+A\cos(\theta-\theta_0)$$
+WLOG we assume $A\ge 0$.\\
+If $A=0$, then $u$ is constant hence we obtain a circular orbit.
+If $A>0$, $u$ obtains its maximum (hence $r$ obtains its minimum) at $\theta=\theta_0$.
+We may choose $\theta_0=0$, then
+$$r=\frac{1}{u}=\frac{\ell}{1+e\cos\theta},\ell=\frac{h^2}{k},e=\frac{Ah^2}{k}$$
+Which is the polar coordinate form of a conic section with focus at the origin.
+$e$ is called the eccentricities, which determines the shape of the trajectory.
+By rearranging we obtain (since $r=\ell-ex$ and $r\cos\theta=y$)
+$$(1-e^2)x^2+2elx+y^2=\ell^2$$
+Therefore if $e\in[0,1)$, it is an ellipse that is bounded by
+$$\frac{\ell}{1+e}\le r\le\frac{\ell}{1-e}$$
+Or analytically we can rewrite the equation as
+$$\frac{(x+ea)^2}{a^2}+\frac{y^2}{b^2}=1,a=\frac{\ell}{1-e^2},b=\frac{\ell}{\sqrt{1-e^2}}\le a$$
+$a,b$ represents the semimajor and semiminor axes respectively.
+In particular, for $e=0$, the path is a circle with center being the central mass.\\
+For $e>1$, the equation gives a hyperbola, so $r\to\infty$ when $\theta\to\pm\alpha$ where $\alpha=\cos^{-1}(-1/e)\in (\pi/2,\pi)$.
+We can also transform the equation ot the standard equation for hyperbola
+$$\frac{(x-ea)^2}{a^2}-\frac{y^2}{b^2}=1$$
+with $a=\ell/(e^2-1),b=\ell/\sqrt{e^2-1}$.
+This case represents incoming body with large velocity which is deflected by gravitational force.
+By simple calculations the asymptotes are $y=\mp b(x-ea)/a$, so $bx\pm ay=eba$.
+And the normal vectors are $\underline{n}=(b,\pm a)/\sqrt{a^2+b^2}$.\\
+Now consider the perpendicular distance between incoming mass and orgin, we have
+$$\underline{r}\cdot\underline{n}=(x,y)\cdot\left( \frac{b}{\sqrt{a^2+b^2}},\pm\frac{a}{\sqrt{a^2+b^2}} \right)=\frac{eba}{\sqrt{a^2+b^2}}=b$$
+This is sometimes called the impact parameter.\\
+The marginal case that $e=1$ yields a parabola with equation
+$$r=\frac{\ell}{1+\cos\theta}$$
+where $r\to \infty$ as $\theta\to\pm\pi$.
+In Cartesians this reduces to $y=2\ell(\ell-x)$.\\
+On the other hand, we might want to analyze the linkge between the energy and the eccentricity of the trajectory.
+Recall that
+\begin{align*}
+    E&=\frac{1}{2}m(\dot{r}^2+r^2\dot{\theta}^2)-\frac{mk}{r}\\
+    &=\frac{1}{2}mh^2\left( \left( \frac{\mathrm du}{\mathrm d\theta} \right)^2+u^2 \right)-mku\\
+    &=\frac{mk}{2\ell}(e^2-1)
+\end{align*}
+Hence bounded orbits have $e<1,E<0$ and unbounded ones have $e>1,E>0$.
+The marginal case is then $e=E=0$.
+\begin{law}[Kepler's Laws of Planetary Motion]
+    1. Orbit of planet is ellipe with the Sun at focus.\\
+    2. Line between the planet and the sun sweeps cut equal area in equal time.\\
+    3. Square of period $P$ is proportional to cube of semimajor axis.
+\end{law}
+1 is consistent with the solutrion to the orbit equation that we have obtained earlier, and $2$ follows from the conservation of angular momentum (since the rate of change of area is approximately $r^2\dot\theta/2=h/2$).
+Hence the area of the ellipse is $A=hP/2$ where $P$ is the period.
+Therefore $\pi ab=hP/2$, rearranging gives the third statement.
+\subsection{Rutherford Scattering}
+Consider the motion in a repulsive force under inverse square law:
+$$V(r)=\frac{mk}{r},F(r)=\frac{mk}{r^2}$$
+Then the orbit equation solves to give
+$$\frac{1}{r}=u=-\frac{k}{h^2}+A\cos(\theta-\theta_0)$$
+WLOG $\theta_0=0,A\ge 0$.
+So
+$$r=\frac{\ell}{e\cos\theta-1},\ell=\frac{h^2}{k},e=\frac{Ah^2}{k}$$
+If there is sometime where $r>0$, then we necessarily have $e>1$, therefore the trajectory is a hyperbola.
+As previously known, $r\to\infty$ as $\theta\to\pm\alpha$ where $\alpha=\cos^{-1}(1/e)\in(0,\pi/2)$ and in Cartesian,
+$$\frac{(x-ea)^2}{a^2}-\frac{y^2}{b^2}=1,a=\frac{\ell}{e^2-1},b=\frac{\ell}{\sqrt{e^2-1}}$$
+Suppose the speed of the particle from far away be $v$, that is
+With $x$-axis parallel to the incoming asymptote, as $t\to-\infty$
+$$\underline{r}(t)\to (x(t),b,0),\underline{\dot{r}}(t)\to(-v,0,0)$$
+Then $\underline{r}\times\underline{\dot{r}}\to(0,0,bv)$
+Therefore the angular momentum per unit mass is $bv$, so
+$$b=\frac{h^2}{k}\frac{k}{bv^2}=\frac{h^2}{k}\tan\frac{\beta}{2}=\frac{b^2v^2}{k}\tan\frac{\beta}{2},\beta=2\tan^{-1}\left( \frac{k}{bv^2} \right)$$
+Rutherfold (1911) fired $\alpha$ particles at gold leaf to obtain experimental results of the scattering.
+But Scattering angles greater than $\pi/2$ is observed in the experiment, from which he concluded that the positive charge must be highly concentrated.
